@@ -35,6 +35,10 @@ main {
   border: none;
 }
 
+.submit {
+  background-color: inherit;
+}
+
 .to-do-list {
   padding-inline-start: 0;
   margin: 0;
