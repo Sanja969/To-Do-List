@@ -1,5 +1,13 @@
 import './style.css';
-// import Icon from './move.png';
+import moveSrc from './move.png';
+import refreshSrc from './refresh.png';
+import returnSrc from './return.png';
+
+const returnImg = document.querySelector('.imgSubmit');
+returnImg.src = returnSrc;
+
+const refreshImg = document.querySelector('.imgRefresh');
+refreshImg.src = refreshSrc;
 
 const toDoListUI = document.querySelector('.to-do-list');
 
@@ -15,7 +23,10 @@ const list = [new Task('Finsh the project', false, 0), new Task('Wash the dishes
 
 const appendTask = (item) => {
   const taskUI = document.createElement('li');
-  taskUI.innerHTML = `<label><input type='checkbox' id = task-${item.index} class = 'check' value=${item.index}>${item.description}</label><img src='../src/move.png'></img>`;
+  taskUI.innerHTML = `<label><input type='checkbox' id = task-${item.index} class = 'check' value=${item.index}>${item.description}</label>`;
+  const moveImg = new Image();
+  moveImg.src = moveSrc;
+  taskUI.appendChild(moveImg);
   toDoListUI.appendChild(taskUI);
 };
 
