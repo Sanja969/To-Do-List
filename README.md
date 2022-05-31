@@ -26,7 +26,7 @@ or
 
 ### Clone it in your local machine using GIT
 to get a local copy , clone the repository using git clone
-(https://github.com/Sanja969/Awesome-Books.git)
+(https://github.com/Sanja969/To-Do-List.git)
 
 
 ## Authors
