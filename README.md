@@ -2,7 +2,7 @@
 
 # To Do List
 
-> This is an example of a web app for adding Task to your own to do list. I as was using javascript, HTML, and CSS. I was using Webpack for bundling dependencies
+> This is an example of a web app for adding Task to your own to do list. I as was using javascript, HTML, and CSS. I was using Webpack for bundling dependencies.
 
 
 ## Built With
