@@ -35,10 +35,6 @@ main {
   border: none;
 }
 
-.addTask > input:focus {
-  outline: none !important;
-}
-
 .submit {
   background-color: inherit;
 }
@@ -60,20 +56,6 @@ main {
   justify-content: space-between;
 }
 
-.to-do-list > * > div {
-  display: flex;
-  align-items: center;
-}
-
-.to-do-list > * > div > p {
-  white-space: nowrap;
-}
-
-.to-do-list > * > div > p:focus {
-  outline: none !important;
-  white-space: nowrap;
-}
-
 .check {
   margin-right: 10px;
 }
@@ -82,7 +64,6 @@ img {
   width: 20px;
   height: 20px;
   background: inherit;
-  cursor: pointer;
 }
 
 .clear {
@@ -91,5 +72,4 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }

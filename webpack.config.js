@@ -5,10 +5,6 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    add: './src/add.js',
-    remove: './src/remove.js',
-    addTaskUI: './src/addTaskUI.js',
-    tasks: './src/tasks.js',
   },
   devtool: 'inline-source-map',
   devServer: {
