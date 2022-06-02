@@ -100,13 +100,14 @@ img {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
 @keyframes backgroundColorPalette {
   0% {
     color: #205cdd;
     font-size: 18px;
     font-weight: 800;
   }
- 
+
   100% {
     color: #0d7415;
     font-size: 22px;
