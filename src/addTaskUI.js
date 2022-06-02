@@ -28,6 +28,7 @@ const appendTask = (item, list) => {
           e.target.style.color = 'black';
           taskUI.children[0].children[1].setAttribute('contenteditable', 'false');
           moveImg.src = moveSrc;
+          moveImg.parentNode.style.background = 'inherit';
           list.forEach((element) => {
             if (element.index === item.index) {
               element.description = taskUI.children[0].children[1].textContent;
