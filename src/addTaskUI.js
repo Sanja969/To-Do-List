@@ -17,15 +17,13 @@ const appendTask = (item, list) => {
       moveImg.parentNode.style.background = 'rgba(214, 214, 148, 0.534)';
       taskUI.children[0].children[1].setAttribute('contenteditable', 'true');
       endCont.textContent = 'Chick here to save changes';
-      endCont.style.background = 'rgba(136, 209, 133, 0.534)';
+      endCont.classList.add('makeChanges');
       endCont.style.fontSize = '24px';
-      endCont.style.color = 'green';
       endCont.addEventListener('click', (e) => {
         if (moveImg.src === trashSrc) {
           e.target.textContent = 'Clear all completed';
-          e.target.style.background = 'rgba(168, 157, 157, 0.534)';
+          e.target.classList.remove('makeChanges');
           e.target.style.fontSize = '16px';
-          e.target.style.color = 'black';
           taskUI.children[0].children[1].setAttribute('contenteditable', 'false');
           moveImg.src = moveSrc;
           moveImg.parentNode.style.background = 'inherit';
