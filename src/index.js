@@ -32,6 +32,10 @@ refreshImg.addEventListener('click', () => {
   document.location.href = './index.html';
 });
 
+returnImg.addEventListener('click', () => {
+  addUI.value = '';
+});
+
 deleteUI.addEventListener('click', () => {
   const checks = document.querySelectorAll('.check');
   for (let i = 0; i < checks.length; i += 1) {
