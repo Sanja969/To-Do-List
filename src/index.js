@@ -6,7 +6,7 @@ import {
   list,
 } from './add.js';
 import clearTask from './remove.js';
-import appendTask from './addTaskUI.js';
+import { appendTask } from './addTaskUI.js';
 import Task from './tasks.js';
 
 const storage = JSON.parse(localStorage.getItem('tasks')) || [];

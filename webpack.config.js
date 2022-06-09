@@ -9,6 +9,7 @@ module.exports = {
     remove: './src/remove.js',
     addTaskUI: './src/addTaskUI.js',
     tasks: './src/tasks.js',
+    update: './src/update.js',
   },
   devtool: 'inline-source-map',
   devServer: {
