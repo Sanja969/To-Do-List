@@ -46,5 +46,14 @@ describe('functions responsible for updating status and editing description', ()
     const storage = JSON.parse(localStorage.getItem('tasks'));
     expect(storage).toEqual([{description: 'taskChanged', completed: false, index: 1}])
   });
+  test('Update status', () => {
+    const taskUI = document.querySelector('.task');
+    const checBox = taskUI.children[0].children[0];
+    checBox.checked = true;
+    updateStatus(taskUI, taskData, checBox, list);
+    expect(taskData.completed).toEqual(true);
+    const storage = JSON.parse(localStorage.getItem('tasks'));
+    expect(storage).toEqual([{description: 'taskChanged', completed: true, index: 1}])
+ });
 });
 });
