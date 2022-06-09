@@ -1,9 +1,5 @@
-// import moveSrc from './move.png';
-// import trashSrc from './trash.png';
-// import clearTask from './remove.js';
-
 const taksContainer = document.createElement('div');
-document.body.appendChild(taksContainer);``
+document.body.appendChild(taksContainer);
 
 const deleteBtn = document.querySelector('.clear');
 const moveSrc = './move.png';
