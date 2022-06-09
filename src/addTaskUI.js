@@ -1,65 +1,61 @@
 import moveSrc from './move.png';
 import trashSrc from './trash.png';
 import clearTask from './remove.js';
+import { updateStatus, confirmChange } from './update.js';
 
 const taksContainer = document.querySelector('.to-do-list');
 const deleteBtn = document.querySelector('.clear');
 
+const confirmChangeUI = (task, taskData, editTaksImg, list) => {
+  if (editTaksImg.src === trashSrc) {
+    editTaksImg.src = moveSrc;
+    deleteBtn.textContent = 'Clear all completed';
+    deleteBtn.classList.remove('makeChanges');
+    deleteBtn.style.fontSize = '16px';
+    task.children[0].children[1].setAttribute('contenteditable', 'false');
+    editTaksImg.parentNode.style.background = 'inherit';
+    confirmChange(task, taskData, list);
+  }
+};
+
+const editTask = (task, taskData, editTaksImg, list) => {
+  if (editTaksImg.src === moveSrc) {
+    editTaksImg.src = trashSrc;
+    editTaksImg.parentNode.style.background = 'rgba(214, 214, 148, 0.534)';
+    task.children[0].children[1].setAttribute('contenteditable', 'true');
+    deleteBtn.textContent = 'Chick here to save changes';
+    deleteBtn.classList.add('makeChanges');
+    deleteBtn.style.fontSize = '24px';
+    deleteBtn.addEventListener('click', () => {
+      confirmChangeUI(task, taskData, editTaksImg, list);
+    });
+  } else {
+    clearTask(taskData.index, list);
+  }
+};
+
 const appendTask = (item, list) => {
   const taskUI = document.createElement('li');
-  taskUI.innerHTML = `<div><input type='checkbox' id = task-${item.index} class = 'check' value=${item.index}><p size='12'>${item.description}</p></div>`;
+  taskUI.innerHTML = `<div class="task"><input type='checkbox' id = task-${item.index} class = 'check' value=${item.index}><p size='12'>${item.description}</p></div>`;
   const editTaksImg = new Image();
   editTaksImg.src = moveSrc;
   taskUI.appendChild(editTaksImg);
   editTaksImg.addEventListener('click', () => {
-    if (editTaksImg.src === moveSrc) {
-      editTaksImg.src = trashSrc;
-      editTaksImg.parentNode.style.background = 'rgba(214, 214, 148, 0.534)';
-      taskUI.children[0].children[1].setAttribute('contenteditable', 'true');
-      deleteBtn.textContent = 'Chick here to save changes';
-      deleteBtn.classList.add('makeChanges');
-      deleteBtn.style.fontSize = '24px';
-      deleteBtn.addEventListener('click', (e) => {
-        if (editTaksImg.src === trashSrc) {
-          e.target.textContent = 'Clear all completed';
-          e.target.classList.remove('makeChanges');
-          e.target.style.fontSize = '16px';
-          taskUI.children[0].children[1].setAttribute('contenteditable', 'false');
-          editTaksImg.src = moveSrc;
-          editTaksImg.parentNode.style.background = 'inherit';
-          list.forEach((element) => {
-            if (element.index === item.index) {
-              element.description = taskUI.children[0].children[1].textContent;
-              localStorage.setItem('tasks', JSON.stringify(list));
-            }
-          });
-        }
-      });
-    } else {
-      clearTask(item.index, list);
-    }
+    editTask(taskUI, item, editTaksImg, list);
   });
   taksContainer.appendChild(taskUI);
-  const check = taskUI.children[0].children[0];
+  const checkBox = taskUI.children[0].children[0];
 
   if (item.completed) {
-    check.checked = true;
+    checkBox.checked = true;
     taskUI.children[0].style.textDecoration = 'line-through';
   }
 
-  check.style.cursor = 'pointer';
+  checkBox.style.cursor = 'pointer';
   editTaksImg.style.cursor = 'pointer';
-  check.addEventListener('click', () => {
-    if (check.checked) {
-      taskUI.children[0].style.textDecoration = 'line-through';
-      item.completed = true;
-      localStorage.setItem('tasks', JSON.stringify(list));
-    } else {
-      taskUI.children[0].style.textDecoration = 'none';
-      item.completed = false;
-      localStorage.setItem('tasks', JSON.stringify(list));
-    }
+  checkBox.addEventListener('click', () => {
+    updateStatus(taskUI, item, checkBox, list);
   });
 };
 
-export default appendTask;
+export { appendTask, editTask };

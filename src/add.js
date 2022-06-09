@@ -1,4 +1,4 @@
-import appendTask from './addTaskUI.js';
+import { appendTask } from './addTaskUI.js';
 import Task from './tasks.js';
 
 const list = [];
