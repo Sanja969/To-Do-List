@@ -6,7 +6,10 @@ import clearTask from '../src/remove.js';
 
 const taskData = new Task('task1',false,1);
 
-test('Make new object with task data', () => {
+
+describe('functions responsible for adding and deleting list items', () => {
+
+test('Make new object from class Task', () => {
 
   expect(taskData).toEqual({description: 'task1', completed: false, index: 1})
 
@@ -25,3 +28,4 @@ test('Remove task', () => {
   expect(taskUI).toHaveLength(0);
   expect(list).toEqual([])
 });
+})
