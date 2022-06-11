@@ -2,13 +2,16 @@
 
 # To Do List
 
-> This is an example of a web app for adding Task to your own to do list. I as was using javascript, HTML, and CSS. I was using Webpack for bundling dependencies.
+> This is an example of a web app for adding your daily tasks in todo list. You can check task when your task is finished and it will be mark as finsih. Also you can delete and change description of tasks.
+
+> I as was using Javascript, HTML, CSS and bootstap. I got Webpack for bundling dependencies.
 
 
 ## Built With
 
 - Language: HTML, Javascript
 - Technologies: CSS, Linter, git
+- Framework: Bootstap
 - Packages: Webpack
 
 
