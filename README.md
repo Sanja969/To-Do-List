@@ -6,7 +6,6 @@
 
 > I as was using Javascript, HTML, CSS and bootstap. I got Webpack for bundling dependencies.
 
-
 ## Built With
 
 - Language: HTML, Javascript
